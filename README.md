@@ -23,6 +23,12 @@ make sure you have [NodeJS](https://nodejs.org/en/download/) installed
    # Production mode
    npm run build
    
+   # Automation testing
+   npm run test
+
+   # End-to-end testing
+   npm run e2e
+   
    # EsLint
    npm run lint
    ```
