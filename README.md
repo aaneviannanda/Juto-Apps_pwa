@@ -21,7 +21,7 @@ make sure you have [NodeJS](https://nodejs.org/en/download/) installed
    npm run start-dev
 
    # Production mode
-   npm run build
+   npm run build-local
    
    # Automation testing
    npm run test
@@ -32,3 +32,5 @@ make sure you have [NodeJS](https://nodejs.org/en/download/) installed
    # EsLint
    npm run lint
    ```
+
+Link hehehe : https://juto-apps.netlify.app/
