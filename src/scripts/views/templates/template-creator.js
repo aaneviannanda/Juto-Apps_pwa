@@ -1,13 +1,10 @@
-/* eslint-disable no-use-before-define */
-/* eslint-disable comma-dangle */
-/* eslint-disable linebreak-style */
 import CONFIG from '../../global/config';
 
 const createRestoDetailTemplate = (result) => `
     <h2 tabindex="0" class="explore">Detail of ${result.name}</h2>
     <div class="poster__container">
       <div class="poster__restaurant">
-        <img class="detail__poster" src="${CONFIG.BASE_IMAGE_URL}large/${result.pictureId}" alt="restoran ${result.name}">
+        <img class="detail__poster" height="400px" width="100%" src="${CONFIG.BASE_IMAGE_URL}large/${result.pictureId}" alt="restoran ${result.name}">
       </div>
       <div class="short__desc">
         <h3><i class="fa fa-map-marker fa-md" aria-hidden="true"></i><span class="color" aria-label="address at ${result.address}, ${result.city}"> ${result.address}, ${result.city}</span></h3>
@@ -38,7 +35,7 @@ const createRestoDetailTemplate = (result) => `
 
 const createRestoItemTemplate = (result) => `
     <div class="card">
-    <img class="card__img" src="${CONFIG.BASE_IMAGE_URL}small/${result.pictureId}" alt="${result.name}" title="${result.name}">
+    <img class="lazyload card__img" src="./placeholder.svg" height="200px" width="100%" data-src="${CONFIG.BASE_IMAGE_URL}small/${result.pictureId}" alt="${result.name}" title="${result.name}">
     <div class="card__city">${result.city}</div>
     <div class="card__content">
         <h3 class="card__title"><a tabindex="0" href="${`/#/detail/${result.id}`}">${result.name}</a></h3>
@@ -52,13 +49,13 @@ const createRestoItemTemplate = (result) => `
 `;
 
 const createLikeButtonTemplate = () => `
-    <button aria-label="like this movie" id="likeButton" class="like">
+    <button aria-label="like this restaurant" id="likeButton" class="like">
       <i class="fa fa-heart-o fa-lg" aria-hidden="true"></i>
     </button>
 `;
 
 const createLikedButtonTemplate = () => `
-    <button aria-label="unlike this movie" id="likeButton" class="like">
+    <button aria-label="unlike this restaurant" id="likeButton" class="like">
       <i class="fa fa-heart fa-lg" aria-hidden="true"></i>
     </button>
 `;
@@ -93,6 +90,24 @@ const loader = () => `
     <div class="loader"></div>
 `;
 
+const createSkeletonTemplate = (count) => {
+    let template = '';
+
+    for (let i = 0; i < count; i += 1) {
+        template += `
+          <div class="card">
+          <img class="card__img" width="100%" height="200px" src="./placeholder.svg" alt="skeleton">
+          <div class="card__content">
+            <h2 class="skeleton">Lorem ipsum dolor sit.</a></h2>
+            <p class="skeleton"></p>
+            <div class="card__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci alias aspernatur, assumenda aut consectetur consequuntur debitis deleniti dicta dolorem dolorum eos exercitationem labore laboriosam magni nihil, nobis obcaecati optio perspiciatis placeat qui recusandae saepe sapiente sequi totam ullam ut.</div>
+          </div>
+          </div>
+        `;
+    }
+    return template;
+};
+
 export {
     // export object
     createRestoItemTemplate,
@@ -102,4 +117,5 @@ export {
     createEmptyFavorite,
     createReviewCard,
     loader,
+    createSkeletonTemplate,
 };

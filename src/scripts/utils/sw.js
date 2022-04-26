@@ -1,6 +1,3 @@
-/* eslint-disable prefer-regex-literals */
-/* eslint-disable comma-dangle */
-/* eslint-disable no-restricted-globals */
 import 'regenerator-runtime/runtime';
 import { setCacheNameDetails } from 'workbox-core';
 import { cleanupOutdatedCaches, precacheAndRoute } from 'workbox-precaching';

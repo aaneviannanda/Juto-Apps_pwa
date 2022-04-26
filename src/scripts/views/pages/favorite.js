@@ -1,5 +1,11 @@
 import FavoriteRestoIdb from '../../data/favoriteresto-idb';
-import { createRestoItemTemplate, createEmptyFavorite, loader } from '../templates/template-creator';
+import {
+    // import onject from template-creator.js
+    createSkeletonTemplate,
+    createRestoItemTemplate,
+    createEmptyFavorite,
+    loader,
+} from '../templates/template-creator';
 
 const Favorite = {
     async render() {
@@ -7,7 +13,9 @@ const Favorite = {
         <div class="load"></div>
         <article class="content">
           <h2 class="explore">My Favorite Restaurant</h1>
-          <div class="list" id="dataCard"></div>
+          <div class="list" id="dataCard">
+          ${createSkeletonTemplate(20)}
+          </div>
         </article>
       `;
     },
@@ -21,11 +29,13 @@ const Favorite = {
         content.style.display = 'none';
         load.innerHTML = loader();
         if (resto.length === 0) {
+            restoContainer.innerHTML = '';
             content.innerHTML += createEmptyFavorite();
             content.style.display = 'block';
             load.style.display = 'none';
         } else {
             try {
+                restoContainer.innerHTML = '';
                 resto.forEach((newResto) => {
                     restoContainer.innerHTML += createRestoItemTemplate(newResto);
                 });
@@ -34,7 +44,7 @@ const Favorite = {
             } catch (err) {
                 content.style.display = 'block';
                 load.style.display = 'none';
-                content.innerHTML = `<b>Error:</b> ${err}`;
+                content.innerHTML = `<b>Error: Ooups.. please check your connection!!</b> ${err}`;
             }
         }
     },

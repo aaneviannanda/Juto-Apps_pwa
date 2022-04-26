@@ -21,7 +21,7 @@ const addNewReview = {
                     RestaurantSource.getRestaurantDetail(url.id);
                     reviewContainer.innerHTML = createReviewCard(response.customerReviews);
                 } catch (err) {
-                    reviewContainer.innerHTML = `<b>Error:</b> ${err}`;
+                    reviewContainer.innerHTML = `<b>Error: Ooups.. please check your connection!!</b> ${err}`;
                 }
             }
             this._emptyForm();

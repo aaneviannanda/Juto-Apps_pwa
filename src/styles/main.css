@@ -152,15 +152,13 @@ body {
 .jumbotron {
     display: flex;
     align-items: center;
-    min-height: 390px;
+    min-height: 475px;
     width: 100%;
     text-align: center;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('../public/heros/heros.jpg');
-    object-fit: cover;
-    height: 70vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('../public/heros/heros-large.jpg');
 }
 
 .jumbotron__text {
@@ -181,6 +179,13 @@ body {
     font-weight: 400;
     color: white;
     text-shadow: 1px 1px #141414;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 /* Styling Main and Content */
@@ -204,6 +209,12 @@ main {
     display: grid;
     grid-column-gap: 2em;
     grid-row-gap: 1.5em;
+}
+
+.skeleton {
+    user-select: none;
+    background-color: #eee;
+    color: #eee;
 }
 
 .card {

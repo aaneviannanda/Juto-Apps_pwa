@@ -1,8 +1,9 @@
 import UrlParser from '../../routes/url-parser';
 import RestaurantSource from '../../data/juto-source';
 import { createRestoDetailTemplate, loader } from '../templates/template-creator';
-import LikeButtonInitiator from '../../utils/like-button-initiator';
+import LikeButtonPresenter from '../../utils/like-button-presenter';
 import addNewReview from '../../utils/add-new-review';
+import FavoriteRestoIdb from '../../data/favoriteresto-idb';
 
 const Detail = {
     async render() {
@@ -43,8 +44,9 @@ const Detail = {
             const result = await RestaurantSource.getRestaurantDetail(url.id);
             resultContainer.innerHTML = createRestoDetailTemplate(result.restaurant);
             addNewReview.post(url);
-            LikeButtonInitiator.init({
+            LikeButtonPresenter.init({
                 likeButtonContainer: document.querySelector('#likeButtonContainer'),
+                FavoriteRestaurant: FavoriteRestoIdb,
                 restaurant: {
                     id: result.restaurant.id,
                     name: result.restaurant.name,
@@ -63,7 +65,7 @@ const Detail = {
         } catch (err) {
             content.style.display = 'block';
             load.style.display = 'none';
-            content.innerHTML = `<b>Error:</b> ${err}`;
+            content.innerHTML = `<b>Error: Ooups.. please check your connection!!</b> ${err}`;
         }
     },
 };
