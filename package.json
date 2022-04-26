@@ -4,7 +4,8 @@
     "description": "Aplikasi web yang memuat informasi tentang berbagai jenis restaurant",
     "main": "index.js",
     "scripts": {
-        "build": "webpack --config webpack.prod.js",
+        "build": "webpack --config webpack.deploy.js",
+        "build-local": "webpack --config webpack.prod.js",
         "build-image": "node sharp.js",
         "e2e": "codeceptjs run --steps",
         "lint": "eslint ./src/scripts",

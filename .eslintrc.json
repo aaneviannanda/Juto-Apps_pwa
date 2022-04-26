@@ -31,7 +31,8 @@
         "prefer-regex-literals": 0,
         "no-use-before-define": 0,
         "func-names": 0,
-        "no-multiple-empty-lines": 0
+        "no-multiple-empty-lines": 0,
+        "import/order": 0
     },
     "plugins": ["jasmine", "codeceptjs"]
 }
